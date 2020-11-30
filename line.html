@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>HTML5 Canvas Tag</title>
+   </head>
+
+   <body>
+      <canvas id="myChart" width="400" height="200"></canvas>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+      <script>
+         let ctx = document.getElementById('myChart').getContext('2d');
+         var mixedChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+               datasets: [{
+                     label: 'Bar Dataset',
+                     data: [{
+                        x:3, y:9
+                     }],
+                     backgroundColor: [
+                        'rgba(0, 0, 0, 0.2)'
+                     ],
+               }, {
+                     label: 'Line Dataset',
+                     data: [30, 50, 35, -20],
+                     backgroundColor: [
+                'rgba(255, 255, 132, 0.2)'
+            ],
+                     // Changes this dataset to become a line
+                     type: 'line'
+               }],
+               labels: ['January', 'February', 'March', 'April']
+            },
+            options: {
+               yAxes:[{
+                  stacked: true
+               }]
+            }
+         });
+         /*let chart = new Chart(ctx,{
+            type: 'scatter',
+            data:{
+               datasets: [{
+                  label: 'scattered',
+                  data: [
+                     {
+                        x:-3, y:4
+                     },
+                     {
+                        x:9, y:3
+                     }
+                  ]
+               },{
+                  label:'lineared',
+                  data:[1,2,3,4],
+                  type:'line'
+               }
+            ],
+            labels: ['January', 'February', 'March', 'April']
+            },
+            options: {
+               scales: {
+                  xAxes:[{
+                     stacked: false,
+                     ticks: {
+                        suggestedMin: 50,
+                        suggestedMax: 100
+                     }
+                  }],
+                  yAxes: [{
+                     stacked: false,
+                     ticks: {
+                        max: 5,
+                        min: 0,
+                        stepSize: 0.5
+                     }
+                  }]
+               }
+            }
+         });*/
+
+         /*var c = document.getElementById('newCanvas');
+         var ctx = c.getContext('2d');
+         ctx.beginPath();
+         ctx.moveTo(75,40);
+         ctx.bezierCurveTo(75,37,70,25);
+         ctx.bezierCurveTo(20,25,20,62.5);
+         ctx.stroke();*/
+         /*ctx.bezierCurveTo(20,80,40,102,75,120);
+         ctx.bezierCurveTo(110,102,130,80,130,62.5);
+         ctx.bezierCurveTo(130,62.5,130,25,100,25);
+         ctx.bezierCurveTo(85,25,75,37,75,40);
+         ctx.fill();*/
+      </script>
+      
+   </body>
+</html>

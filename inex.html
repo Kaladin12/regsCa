@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "myDiv">
+        <canvas id="myChart"></canvas>
+    </div>
+    
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://mauriciopoppe.github.io/function-plot/js/function-plot.js"></script>
+
+  <button onclick="plot();">Plot it!</button>
+  <section id="plotZone">
+    <div id="function"></div>
+  </section>
+    <script>
+       var parameters = {
+        target: '#function',
+        data: [{
+            fn: 'sin(x)', 
+            color: 'red'
+        }],
+        grid: true,
+        yAxis: {domain: [-1, 1]},
+        xAxis: {domain: [0, 2*Math.PI]}
+        };
+
+        function plot() {
+        var f = "ln(2^1)";//document.querySelector("#function").value;
+        var xMin = -2;//document.querySelector("#xMin").value;
+        var xMax = 2;//document.querySelector("#xMax").value;
+        var yMin = -1;//document.querySelector("#yMin").value;
+        var yMax = 5;//document.querySelector("#yMax").value;
+        var color = "black"//document.querySelector("#color").value;
+        
+        parameters.data[0].fn = f;
+        parameters.xAxis.domain = [xMin, xMax];
+        parameters.yAxis.domain = [yMin, yMax];
+        parameters.data[0].color = color;
+        
+        functionPlot(parameters);
+        }
+
+
+    </script>
+
+</body>
+</html>

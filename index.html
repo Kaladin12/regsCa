@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regressions</title>
+</head>
+<body>
+    <input type="text" id="textInput" value="number of points">
+    <input type="button" id="but" value="Listo">
+    <ol id = "list"></ol>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.0/math.min.js" ></script>
+    <script >
+        /*
+        let b = document.getElementById("but").addEventListener("click", regressionsGeneralized, false);
+        //console.log(math.simplify(r).toString());
+        function regressionsGeneralized(){
+            text = document.getElementById("textInput");
+            console.log(text.value);
+            let r = 5;
+            console.log(math.parse(text.value).evaluate({x:r}));
+            console.log(math.simplify(math.parse(text.value)).toString());
+        }*/
+        let text = document.getElementById("textInput");
+        let b = document.getElementById("but").addEventListener("click", function(){
+            regressionsGeneralized(text.value);
+        }, false);
+        let x = 0;
+        function clk(v,x){
+            console.log(v);
+            
+        }
+        function regressionsGeneralized(n,x=0,y=0,isExp=false, isPot=false, isLn=false){
+            let l = document.getElementById("list");
+            xArray = math.zeros(parseInt(n));
+            for (let index = 0; index < parseInt(n); index++) {
+                let a = document.createElement("li");
+                let s = document.createElement("input");
+                let b = document.createElement("input");
+                b.type = "button"; b.id = "b"+index.toString(); b.innerHTML.text = "Listo"
+                s.type = "text"; s.id = "t"+index.toString();
+                b.addEventListener("click", function(){
+                    clk(s.value,xArray);
+                },false);
+                a.appendChild(s); a.appendChild(b);
+                l.appendChild(a);
+            }
+        }
+    </script>
+</body>
+</html>

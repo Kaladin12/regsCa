@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var w = window.innerWidth; 
+var h = window.innerHeight; 
+var cellSize = 50; 
+ 
+var canv = document.createElement("canvas"); 
+canv.width = w; 
+canv.height = 2*h/3; 
+document.body.appendChild(canv); 
+var ctx = canv.getContext("2d"); 
+ 
+ctx.fillStyle = "white"; 
+ctx.fillRect(0, 0, w, h); 
+ 
+ctx.strokeStyle = "black"; 
+ 
+for (var c = 1; c < w / cellSize; c++) { 
+  ctx.beginPath(); 
+  ctx.moveTo(c * cellSize, 0); 
+  ctx.lineTo(c * cellSize, h); 
+  ctx.stroke(); 
+} 
+ 
+for (var r = 1; r < (2*h/3)/ cellSize; r++) { 
+  ctx.beginPath(); 
+  ctx.moveTo(0, r * cellSize); 
+  ctx.lineTo(w, r * cellSize); 
+  ctx.stroke(); 
+} 
+    </script>
+</body>
+</html>
